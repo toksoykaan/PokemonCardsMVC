@@ -13,6 +13,8 @@
 		BE07EDA027D0023E00E245D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE07ED9E27D0023E00E245D4 /* Main.storyboard */; };
 		BE07EDA227D0023E00E245D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE07EDA127D0023E00E245D4 /* Assets.xcassets */; };
 		BE07EDA527D0023E00E245D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE07EDA327D0023E00E245D4 /* LaunchScreen.storyboard */; };
+		BE2C98E727D3750C00844E8C /* PokemonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C98E627D3750C00844E8C /* PokemonData.swift */; };
+		BE2C98ED27D3D77300844E8C /* PokemonModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C98EC27D3D77300844E8C /* PokemonModelManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		BE07EDA127D0023E00E245D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE07EDA427D0023E00E245D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE07EDA627D0023E00E245D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE2C98E627D3750C00844E8C /* PokemonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonData.swift; sourceTree = "<group>"; };
+		BE2C98EC27D3D77300844E8C /* PokemonModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonModelManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,41 @@
 		BE07ED9727D0023E00E245D4 /* Pokemon Cards */ = {
 			isa = PBXGroup;
 			children = (
+				BE2C98E327D3656D00844E8C /* Model */,
+				BE2C98E427D3657500844E8C /* View */,
+				BE2C98E527D3658000844E8C /* Controller */,
 				BE07ED9827D0023E00E245D4 /* AppDelegate.swift */,
 				BE07ED9A27D0023E00E245D4 /* SceneDelegate.swift */,
-				BE07ED9C27D0023E00E245D4 /* ViewController.swift */,
-				BE07ED9E27D0023E00E245D4 /* Main.storyboard */,
 				BE07EDA127D0023E00E245D4 /* Assets.xcassets */,
 				BE07EDA327D0023E00E245D4 /* LaunchScreen.storyboard */,
 				BE07EDA627D0023E00E245D4 /* Info.plist */,
 			);
 			path = "Pokemon Cards";
+			sourceTree = "<group>";
+		};
+		BE2C98E327D3656D00844E8C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BE2C98E627D3750C00844E8C /* PokemonData.swift */,
+				BE2C98EC27D3D77300844E8C /* PokemonModelManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BE2C98E427D3657500844E8C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BE07ED9E27D0023E00E245D4 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BE2C98E527D3658000844E8C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BE07ED9C27D0023E00E245D4 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,8 +169,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE07ED9D27D0023E00E245D4 /* ViewController.swift in Sources */,
+				BE2C98ED27D3D77300844E8C /* PokemonModelManager.swift in Sources */,
 				BE07ED9927D0023E00E245D4 /* AppDelegate.swift in Sources */,
 				BE07ED9B27D0023E00E245D4 /* SceneDelegate.swift in Sources */,
+				BE2C98E727D3750C00844E8C /* PokemonData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,8 +327,10 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -323,8 +357,10 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
