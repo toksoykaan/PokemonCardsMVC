@@ -22,23 +22,27 @@ class PokemonModelManager{
     //UIImage Downloader input
     var image : UIImage?
     
+    //We are delivering API data to this array at once. including PokemonData items
+    var pokemonArray : [PokemonData] = []
+    //Used in while loop at line 33 which where we append API data to pokemonArray
+    var i = 1
     
-    func getPokemons(pokemonNumber : Int){
+    
+    func getPokemons(){
         
-        url = URL(string: "https://pokeapi.co/api/v2/pokemon/\(pokemonNumber)/")
+        while i <= 20{
+            url = URL(string: "https://pokeapi.co/api/v2/pokemon/\(i)/")
+            i+=1
         let task  = URLSession.shared.dataTask(with: url!) { data, _, error in
+            
             guard let data = data, error == nil else {
-                print("loading")
                 return
             }
             DispatchQueue.main.async { [self] in
                 do{
                     let pokemonData = try JSONDecoder().decode(PokemonData.self, from: data)
-                    
-                    name = pokemonData.name
-                    hp = String(pokemonData.stats[0].base_stat)
-                    attack = String(pokemonData.stats[1].base_stat)
-                    def = String(pokemonData.stats[2].base_stat)
+                    //We are appending data 20 times at APP startup
+                    pokemonArray.append(pokemonData)
                     
                 }catch{
                     print(error)
@@ -47,7 +51,11 @@ class PokemonModelManager{
     }
         task.resume()
     }
+    }
     
+    
+    //Standart image downloader with guard let URLResponse of 200.
+    //Image is going to be downloaded 20 times as ViewController asks this helper method at ViewController section line 33
     func imageDownloader(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit, completion: ((UIImage) -> Void)?) {
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard
@@ -62,5 +70,9 @@ class PokemonModelManager{
         }.resume()
     }
 
+    func pushPokemonArray() -> [PokemonData]{
+        return pokemonArray
+    }
+    
 
 }
