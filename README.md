@@ -2,7 +2,7 @@
 
 In this project, you are swiping through the marvelous pokemon characters.
 
-Key concepts of the project I used;
+In this project I used;
 
  - Swift
  - MVC architecture
